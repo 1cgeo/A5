@@ -20,24 +20,43 @@
 </head>
 
 <body>
-  <div id="loader" class="lds-facebook"><div></div><div></div><div></div></div>
+  <div id="message" style="
+    height: 200px;
+    position: relative;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 40px;
+    text-align: center;
+    display: none;
+    ">
+    <p>Seu navegador não é compatível. Utilize o Google Chrome.</p>
+  </div>
+  <div id="loader" class="lds-facebook">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
   <video id="video" autoplay></video>
   <div id="view">
     <div id="northarrow"></div>
     <div id="navigation"></div>
   </div>
-  
+
   <!-- buttons -->
   <button class="btn" id="stop-button" title="stop orbitting"><i class="fas fa-stop-circle fa-2x"></i></button>
-  
+
   <label class="switch" title="AR mode">
     <div>AR</div>
     <input type="checkbox" id="ar-checkbox">
     <span class="slider"></span>
   </label>
-  
-  <button class="btn" id="current-location" title="move to current location"><i class="fas fa-crosshairs fa-2x"></i></button>
-  
+
+  <button class="btn" id="current-location" title="move to current location"><i
+      class="fas fa-crosshairs fa-2x"></i></button>
+
   <div class="expand">
     <input type="checkbox" id="expand-checkbox">
     <label for="expand-checkbox" title="show/hide buttons">
@@ -47,12 +66,12 @@
     <button class="btn btn3" id="settings-button" title="settings"><i class="fas fa-cog fa-2x"></i></button>
     <button class="btn btn4" id="info-button" title="about this page"><i class="fas fa-info-circle fa-2x"></i></button>
   </div>
-  
+
   <!-- layer panel -->
   <div id="layerpanel">
     <div id="layerlist"></div>
   </div>
-  
+
   <!-- settings -->
   <div id="settings">
     <div>Configurações da câmera no modo AR</div>
@@ -78,103 +97,131 @@
       <button id="settings-cancel">Cancelar</button>
     </div>
   </div>
-  
+
   <!-- popup -->
   <div id="popup">
     <div id="closebtn">&times;</div>
     <div id="popupbar"></div>
     <div id="popupbody">
       <div id="popupcontent"></div>
-  
+
       <!-- query result -->
       <div id="queryresult">
         <table id="qr_coords_table">
-          <caption>Coordenada clicada <div id="zoomtopoint" class="action-zoom zoombtn"></div></caption>
-          <tr><td id="qr_coords"></td></tr>
+          <caption>Coordenada clicada <div id="zoomtopoint" class="action-zoom zoombtn"></div>
+          </caption>
+          <tr>
+            <td id="qr_coords"></td>
+          </tr>
         </table>
-  
+
         <table id="qr_layername_table">
-          <caption>Camada <div id="zoomtolayer" class="action-zoom zoombtn"></div></caption>
-          <tr><td id="qr_layername"></td></tr>
+          <caption>Camada <div id="zoomtolayer" class="action-zoom zoombtn"></div>
+          </caption>
+          <tr>
+            <td id="qr_layername"></td>
+          </tr>
         </table>
-  
+
         <table id="qr_attrs_table">
           <caption>Atributos</caption>
         </table>
-  
+
         <!-- camera actions and measure tool -->
         <div class="action-btn action-move" onclick="startARModeHere()">Iniciar AR modo na posição</div>
         <div class="action-btn action-move hidden" onclick="moveHere()">Mover para posição</div>
         <div id="orbitbtn" class="action-btn action-orbit">Girar</div>
         <div id="measurebtn" class="action-btn">Medir distância</div>
       </div>
-  
+
       <!-- page info -->
       <div id="pageinfo">
         <h1>Uso</h1>
         <table id="usage">
-          <tr><td colspan="2" class="star">Modo não AR</td></tr>
-          <tr><td>Movimento de um dedo</td><td>Órbita</td></tr>
-          <tr><td>Beliscar dois dedos</td><td>Ampliação</td></tr>
-          <tr><td>Movimento de dois dedos</td><td>Arrastar</td></tr>
+          <tr>
+            <td colspan="2" class="star">Modo não AR</td>
+          </tr>
+          <tr>
+            <td>Movimento de um dedo</td>
+            <td>Órbita</td>
+          </tr>
+          <tr>
+            <td>Beliscar dois dedos</td>
+            <td>Ampliação</td>
+          </tr>
+          <tr>
+            <td>Movimento de dois dedos</td>
+            <td>Arrastar</td>
+          </tr>
         </table>
-  
+
         <h1>Sobre</h1>
         <div id="about">
-          Esta página foi feita com <a href="https://www.qgis.org/">QGIS</a> e <a href="https://github.com/minorua/Qgis2threejs">Qgis2threejs</a> plugin (version 2.7.1).
+          Esta página foi feita com <a href="https://www.qgis.org/">QGIS</a> e <a
+            href="https://github.com/minorua/Qgis2threejs">Qgis2threejs</a> plugin (version 2.7.1).
           <div>Distribuído por <a href="https://threejs.org/">three.js</a>,
-          <a href="https://trac.osgeo.org/proj4js/">Proj4js</a> e
-          <a href="https://fontawesome.com/">Font Awesome</a>.</div>
+            <a href="https://trac.osgeo.org/proj4js/">Proj4js</a> e
+            <a href="https://fontawesome.com/">Font Awesome</a>.
+          </div>
         </div>
       </div>
     </div>
   </div>
-  
+
   <!-- progress bar -->
-  <div id="progress"><div id="progressbar"></div></div>
-  
+  <div id="progress">
+    <div id="progressbar"></div>
+  </div>
+
   <!-- header and footer -->
   <div id="header"></div>
   <div id="footer"></div>
-  
+
   <!-- animation -->
   <div id="narrativebox" class="ef1">
     <div id="narbody">
-  
+
     </div>
     <div id="nextbtn"></div>
   </div>
-  
+
   <script>
-  Q3D.Config.bgColor = 0x000000;
-  Q3D.Config.coord.latlon = true;
-  Q3D.Config.localMode = true;
-  Q3D.Config.AR.MND = 0.0;
-  Q3D.Config.northArrow.enabled = true;
-  Q3D.Config.northArrow.color = 0xffd001;
-  
-  var container = document.getElementById("view"),
-      app = Q3D.application,
-      gui = Q3D.gui;
-  
-  app.init(container);          // initialize viewer
-  init();                       // initialization for mobile template (in mobile.js)
-  
-  // load the scene
-  app.loadSceneFile("./data/A3/scene.js", function (scene) {
-    // scene file has been loaded
-    app.start();
-  
-    if ("AR" in app.urlParams) {
-      document.getElementById("ar-checkbox").checked = true;
-      startARMode();
-      moveToCurrentLocation();
+    var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+    if (!isChrome) {
+      document.getElementById("loader").style.display = 'none'
+      document.getElementById("message").style.display = 'block'
+    } else {
+      Q3D.Config.bgColor = 0x000000;
+      Q3D.Config.coord.latlon = true;
+      Q3D.Config.localMode = true;
+      Q3D.Config.AR.MND = 0.0;
+      Q3D.Config.northArrow.enabled = true;
+      Q3D.Config.northArrow.color = 0xffd001;
+
+      var container = document.getElementById("view"),
+        app = Q3D.application,
+        gui = Q3D.gui;
+
+      app.init(container);          // initialize viewer
+      init();                       // initialization for mobile template (in mobile.js)
+
+      // load the scene
+      app.loadSceneFile("./data/A3/scene.js", function (scene) {
+        // scene file has been loaded
+        app.start();
+
+        if ("AR" in app.urlParams) {
+          document.getElementById("ar-checkbox").checked = true;
+          startARMode();
+          moveToCurrentLocation();
+        }
+        document.getElementById("loader").style.display = 'none'
+      }, function (scene) {
+        // all relevant files have been loaded
+
+      });
     }
-    document.getElementById("loader").style.display = 'none'
-  }, function (scene) {
-    // all relevant files have been loaded
-  
-  });
+
   </script>
 
 </html>
