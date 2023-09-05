@@ -380,7 +380,7 @@ body {
     left: 40%;
   }
   .lds-facebook:before {
-    background-size: 50% 40vh;
+    background-size: 70% 40vh;
     background-position: 52% 20vh;
   }
 }
